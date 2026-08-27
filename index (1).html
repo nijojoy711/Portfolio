@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Nijo J S — B.Tech CSE student, programmer and technology enthusiast.">
+  <title>Nijo J S | CSE Student Portfolio</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0b1728;
+      --card:rgba(15,29,48,.78);
+      --text:#edf4ff;
+      --muted:#9eb0c8;
+      --accent:#4f8cff;
+      --accent2:#75b8ff;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 20px 60px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(79,140,255,.16),transparent 28%),
+        radial-gradient(circle at 10% 40%,rgba(117,184,255,.08),transparent 24%),
+        var(--bg);
+      color:var(--text);line-height:1.65;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,90%);margin:auto}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(7,17,31,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:1.15rem;letter-spacing:.04em}
+    .logo span{color:var(--accent)}
+    nav ul{display:flex;gap:28px;list-style:none}
+    nav a{color:var(--muted);font-size:.92rem;transition:.25s}
+    nav a:hover{color:var(--text)}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+    .eyebrow{color:var(--accent2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+    h1{font-size:clamp(3rem,7vw,5.9rem);line-height:.98;margin:15px 0 22px;letter-spacing:-.055em}
+    h1 span{color:var(--accent)}
+    .hero p{max-width:650px;color:var(--muted);font-size:1.08rem}
+    .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .btn{padding:12px 20px;border-radius:12px;border:1px solid var(--line);font-weight:700;transition:.25s}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:white}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(79,140,255,.2)}
+    .photo-card{
+      min-height:390px;border:1px solid var(--line);border-radius:28px;
+      background:linear-gradient(145deg,rgba(79,140,255,.12),rgba(255,255,255,.025));
+      display:grid;place-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .photo-placeholder{
+      width:210px;height:250px;border:2px dashed rgba(117,184,255,.45);border-radius:22px;
+      display:grid;place-items:center;text-align:center;color:var(--muted);padding:25px
+    }
+    .photo-placeholder strong{display:block;color:var(--text);margin-bottom:6px}
+    section{padding:100px 0}
+    .section-title{font-size:2rem;letter-spacing:-.03em;margin-bottom:12px}
+    .section-sub{color:var(--muted);max-width:680px;margin-bottom:38px}
+    .grid{display:grid;gap:20px}
+    .about-grid{grid-template-columns:1.4fr .6fr}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;
+      box-shadow:var(--shadow)
+    }
+    .card p{color:var(--muted)}
+    .stats{display:grid;gap:14px}
+    .stat strong{display:block;font-size:1.8rem;color:var(--accent2)}
+    .stat span{font-size:.9rem;color:var(--muted)}
+    .skills{grid-template-columns:repeat(3,1fr)}
+    .skill-card h3{font-size:1rem;margin-bottom:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:.84rem;color:#cfe1ff;background:rgba(79,140,255,.1);border:1px solid rgba(79,140,255,.2);padding:6px 10px;border-radius:999px}
+    .projects{grid-template-columns:repeat(3,1fr)}
+    .project-card{position:relative;overflow:hidden}
+    .project-number{font-size:.8rem;color:var(--accent);font-weight:800}
+    .project-card h3{margin:10px 0 8px;font-size:1.2rem}
+    .project-card p{font-size:.92rem;margin-bottom:20px}
+    .project-card .tags{margin-top:auto}
+    .timeline{border-left:1px solid var(--line);padding-left:28px;display:grid;gap:28px}
+    .timeline-item{position:relative}
+    .timeline-item:before{
+      content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);
+      left:-34px;top:9px;box-shadow:0 0 0 5px rgba(79,140,255,.12)
+    }
+    .year{color:var(--accent2);font-size:.82rem;font-weight:800;letter-spacing:.08em}
+    .timeline h3{margin:5px 0 2px}
+    .timeline p{color:var(--muted)}
+    .certs{grid-template-columns:repeat(3,1fr)}
+    .cert-card h3{font-size:1rem;margin-bottom:8px}
+    .cert-card p{font-size:.9rem}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .contact-item{padding:18px 0;border-bottom:1px solid var(--line)}
+    .contact-item span{display:block;color:var(--muted);font-size:.82rem;margin-bottom:3px}
+    .contact-item a{color:var(--accent2);word-break:break-word}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+    .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media(max-width:850px){
+      nav ul{display:none}
+      .hero-grid,.about-grid,.contact{grid-template-columns:1fr}
+      .skills,.projects,.certs{grid-template-columns:1fr}
+      .photo-card{min-height:300px}
+      section{padding:75px 0}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">NIJO<span>.</span></a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">B.Tech CSE Student • Builder • Learner</div>
+          <h1>Hi, I'm <span>Nijo J S</span>.</h1>
+          <p>
+            A B.Tech Computer Science student focused on strengthening Java, Python,
+            foundational Data Structures & Algorithms, and cybersecurity fundamentals.
+            I enjoy learning by building and turning ideas into practical projects.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">Explore My Work</a>
+            <a class="btn" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+        <div class="photo-card reveal">
+          <div class="photo-placeholder">
+            <div><strong>Your Photo</strong>Replace this space with your profile picture.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-sub reveal">Curious about technology, comfortable learning from scratch, and always looking for the next thing to build.</p>
+        <div class="about-grid grid">
+          <div class="card reveal">
+            <p>
+              I'm currently pursuing a Bachelor of Technology in Computer Science and Engineering
+              at Lovely Professional University. My current focus is on Java and Python programming,
+              problem-solving, web fundamentals, and developing a stronger foundation in Data
+              Structures & Algorithms.
+            </p>
+            <br>
+            <p>
+              Alongside academics, I explore cybersecurity concepts, attend technology events and
+              coding activities, and work on small projects that help me turn theory into hands-on
+              experience. My goal is to keep improving through projects, coding platforms, teamwork,
+              and early internship opportunities.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="card stat reveal"><strong>2025–2029</strong><span>B.Tech CSE</span></div>
+            <div class="card stat reveal"><strong>Java + Python</strong><span>Core programming focus</span></div>
+            <div class="card stat reveal"><strong>3</strong><span>Featured projects</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title reveal">Technical Skills</h2>
+        <p class="section-sub reveal">Technologies and fundamentals I'm currently building depth in.</p>
+        <div class="skills grid">
+          <div class="card skill-card reveal">
+            <h3>Programming</h3>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Python</span></div>
+          </div>
+          <div class="card skill-card reveal">
+            <h3>Web Technologies</h3>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </div>
+          <div class="card skill-card reveal">
+            <h3>Core & Other</h3>
+            <div class="tags"><span class="tag">Problem Solving</span><span class="tag">DSA Fundamentals</span><span class="tag">Cybersecurity Fundamentals</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-sub reveal">Small builds that reflect my current learning journey.</p>
+        <div class="projects grid">
+          <article class="card project-card reveal">
+            <div class="project-number">01 / JAVA</div>
+            <h3>Logic Gate Simulator</h3>
+            <p>
+              A Java-based learning project that models digital logic gates and their truth-table
+              behaviour. Designed to strengthen programming logic while connecting software concepts
+              with basic digital electronics.
+            </p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Logic Design</span></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-number">02 / PYTHON</div>
+            <h3>Python Mini-Games</h3>
+            <p>
+              A collection of small Python games created to practise conditions, loops, functions,
+              user input, game logic, and clean program structure through hands-on experimentation.
+            </p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Game Logic</span></div>
+          </article>
+          <article class="card project-card reveal">
+            <div class="project-number">03 / ROBOTICS</div>
+            <h3>Robotics Competition Contribution</h3>
+            <p>
+              Contributed to an inter-school robotics competition project, gaining practical exposure
+              to teamwork, problem-solving, planning, and technology-focused collaboration.
+            </p>
+            <div class="tags"><span class="tag">Robotics</span><span class="tag">Teamwork</span><span class="tag">Problem Solving</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title reveal">Education & Activities</h2>
+        <p class="section-sub reveal">Academic background and early technology exposure.</p>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="year">2025–2029</div>
+            <h3>Bachelor of Technology — Computer Science & Engineering</h3>
+            <p>Lovely Professional University, Punjab</p>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="year">2025</div>
+            <h3>Higher Secondary</h3>
+            <p>Nazareth Home School, Kerala — ISC</p>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="year">2023</div>
+            <h3>Secondary</h3>
+            <p>St Teresa Of Avila ICSE School, Kerala</p>
+          </div>
+        </div>
+
+        <div style="height:50px"></div>
+        <h2 class="section-title reveal">Activities & Learning</h2>
+        <div class="certs grid" style="margin-top:28px">
+          <div class="card cert-card reveal"><h3>Technology Events</h3><p>Participated in technology-focused events on campus.</p></div>
+          <div class="card cert-card reveal"><h3>Hackathons & Coding Workshops</h3><p>Attended hackathons and coding workshops to gain practical exposure.</p></div>
+          <div class="card cert-card reveal"><h3>Cybersecurity & Programming Seminars</h3><p>Attended seminars covering cybersecurity and programming fundamentals.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">Strengths & Languages</h2>
+        <div class="skills grid" style="margin-top:28px">
+          <div class="card skill-card reveal">
+            <h3>Strengths</h3>
+            <div class="tags">
+              <span class="tag">Fast Learner</span><span class="tag">Logical Thinker</span>
+              <span class="tag">Detail-Oriented</span><span class="tag">Communication</span>
+              <span class="tag">Teamwork</span><span class="tag">Curious About Tech</span>
+              <span class="tag">Good at Reading the Room</span>
+            </div>
+          </div>
+          <div class="card skill-card reveal">
+            <h3>Languages</h3>
+            <div class="tags"><span class="tag">English</span><span class="tag">German</span><span class="tag">Malayalam</span></div>
+          </div>
+          <div class="card skill-card reveal">
+            <h3>Currently Exploring</h3>
+            <div class="tags"><span class="tag">DSA</span><span class="tag">Cybersecurity</span><span class="tag">Web Development</span><span class="tag">Coding Platforms</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Let's Connect</h2>
+        <p class="section-sub reveal">Open to learning opportunities, collaborations, projects, and early internship experiences.</p>
+        <div class="contact">
+          <div class="card reveal">
+            <div class="contact-item"><span>Email</span><a href="mailto:nijojs328@gmail.com">nijojs328@gmail.com</a></div>
+            <div class="contact-item"><span>Phone</span><a href="tel:+917907989605">+91 79079 89605</a></div>
+            <div class="contact-item"><span>Location</span><span>Phagwara, Punjab, India</span></div>
+          </div>
+          <div class="card reveal">
+            <div class="contact-item"><span>GitHub</span><a href="https://github.com/nijojoy711" target="_blank" rel="noopener">github.com/nijojoy711</a></div>
+            <div class="contact-item"><span>LinkedIn</span><a href="https://www.linkedin.com/in/nijo-js-2b87b2363" target="_blank" rel="noopener">linkedin.com/in/nijo-js-2b87b2363</a></div>
+            <div class="contact-item"><span>Portfolio Focus</span><span>Internships • Academics • Personal Projects</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Nijo J S. Built while learning, experimenting, and creating.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
